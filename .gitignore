@@ -1,0 +1,4 @@
+.idea
+assets/tablesorter-master
+assets/jquery*.js
+__pycache__*
