@@ -7,7 +7,7 @@ Ero troppo pigro per fare un database dei miei giochi da tavolo, quindi ho fatto
 La parte python richiede di installare i moduli requests, fire, e bottle.
 Tutti si possono installare via pip.
 Poi nella cartella assets, occorre inserire [jquery](http://jquery.com/)
-(il software e' stato fatto con la versione -3.2.1.min,
+(il software e' stato fatto con la versione "-3.2.1.min",
 se si vuole usarne un'altra è necessario modificare la versione nella
 costante JQUERY_VERSION in gui.py').
 Inoltre, sempre in assets, è necessario aggiungere la libreria [tablesorter](http://tablesorter.com/).
@@ -19,11 +19,11 @@ Al momento si può chiamare in due modi.
 ```
 python bgg serve
 ```
-tira su un server che risponde su http://localhost:8080/owned.
+tira su un server che risponde su http://localhost:8080/. Al momento l'unica chiamata sensata da fare in un browser è http://localhost:8080/owned.
 ```
 python bgg generate
 ```
-invece tira su il server, apre quella pagina su un brower, e poi
+invece tira su il server, apre quella pagina su un browser, e poi
 prova a spegnere il server
 (tanto la pagina al momento non ha altre interazioni sul backend).
 
