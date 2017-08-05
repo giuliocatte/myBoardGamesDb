@@ -29,10 +29,13 @@ invece tira su il server, apre quella pagina su un browser, e poi
 prova a spegnere il server
 (tanto la pagina al momento non ha altre interazioni sul backend).
 
+### note
+* I giochi più vecchi del 75, sono stati messi in una sezione classici che sta in fondo a prescindere dall'ordinamento.
+* Se si specifica nell'url ?theme={un tema} viene utilizzato uno dei temi di tablesorter, per default il tema è "green".
+
+
 ## known issues
-* in teoria, chiamando l'url /owned?theme={un tema} si dovrebbe utilizzare un tema per la
-tabella diverso dal default. In pratica, l'url sembra venir generato correttamente,
- ma il css per qualche motivo non funziona
+* avevo provato ad usare gli sticky headers di tablesorter, ma per ora senza successo.
 * in teoria, generate dovrebbe spegnere il server dopo aver generato la pagina.
 Questo parrebbe succedere ogni tanto (random), ma spesso no.
 Ci prova server.stop(), e inoltre se non erro è ciò a cui
