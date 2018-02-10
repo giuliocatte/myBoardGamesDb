@@ -40,6 +40,14 @@ class Site:
             content = '<a href="https://boardgamegeek.com/boardgame/{0}" target="_">{0}</a>'.format(content)
         elif name == 'thumbnail' and content:
             content = '<img class="thumbnail" src="{}"/>'.format(content)
+        elif name == 'rank':
+            try:
+                val = int(content)
+            except ValueError:
+                pass
+            else:
+                if val < 0:
+                    content = 'n/d'
         return '<td>{}</td>'.format(content)
 
     def bodyrows(self, header, filter=None):
