@@ -11,7 +11,7 @@ class BGG:
 	def set_collection(self):
 		resp = requests.get('https://bgg-json.azurewebsites.net/collection/{}?grouped=true'.format(self.username))
 		if resp.status_code != 200:
-			raise RuntimeError("error from bgg", resp.status_code)
+			raise RuntimeError("{} error from bgg: {}".format(resp.status_code, resp.text))
 
 		coll = json.loads(resp.text)
 		self.__collection = coll
