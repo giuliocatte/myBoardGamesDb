@@ -91,7 +91,7 @@ class Site:
 				</script>
 			</head>
 			<body>
-			    <div class="header-container"></div>
+			    <div id="headerwrapper"></div>
 				<table id="bggdata">
 					<thead>
 						<tr>
