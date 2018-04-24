@@ -1,31 +1,49 @@
-import requests
-import json
+import threading
+import time
+import webbrowser
+
+import bottle
+import fire
+
+USERNAME = 'giuliokatte'
+
+from source import gui
+from source.main import BGG
+
+bgg = BGG(user=USERNAME)
+s = gui.Site(bgg)
+gui.set_routes(s)
 
 
-class BGG:
+class MyWSGIRefServer(bottle.ServerAdapter):
+	server = None
 
-	def __init__(self, user):
-		self.username = user
-		self.__collection = None
+	def run(self, handler):
+		from wsgiref.simple_server import make_server, WSGIRequestHandler
+		if self.quiet:
+			class QuietHandler(WSGIRequestHandler):
+				def log_request(*args, **kw): pass
+			self.options['handler_class'] = QuietHandler
+		self.server = make_server(self.host, self.port, handler, **self.options)
+		self.server.serve_forever(poll_interval=0.5)
 
-	def set_collection(self):
-		resp = requests.get('https://bgg-json.azurewebsites.net/collection/{}?grouped=true'.format(self.username))
-		if resp.status_code != 200:
-			raise RuntimeError("{} error from bgg: {}".format(resp.status_code, resp.text))
-
-		coll = json.loads(resp.text)
-		self.__collection = coll
-
-	@property
-	def collection(self):
-		if not self.__collection:
-			self.set_collection()
-		return self.__collection
-
-	@property
-	def owned_games(self):
-		for game in self.collection:
-			if game['owned']:
-				yield game
+	def stop(self):
+		self.server.shutdown()
 
 
+class Launcher:
+	def serve(self):
+		bottle.run(**s.site_data)
+
+	def generate(self):
+		server = MyWSGIRefServer(**s.site_data)
+		t = threading.Thread(target=bottle.run, kwargs={'server': server})
+		t.start()
+		webbrowser.open(s.url + 'owned')
+		time.sleep(0.5)
+		server.stop()
+
+	def download(self):
+		bgg.refresh_collection()
+
+fire.Fire(Launcher)

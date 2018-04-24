@@ -17,13 +17,17 @@ Se ci sono dubbi sui path, si possono vedere i nodi script nel file gui.py,
 dove questi componenti sono utilizzati.
 
 ## usage
-Al momento si può chiamare in due modi.
+Per aggiornare il db locale da boardgamegeek, posizionarsi all'interno della directory ed eseguire
 ```
-python bgg serve
+python bgg.py download
+```
+L'interfaccia al momento si può chiamare in due modi.
+```
+python bgg.py serve
 ```
 tira su un server che risponde su http://localhost:8080/. Al momento l'unica chiamata sensata da fare in un browser è http://localhost:8080/owned.
 ```
-python bgg generate
+python bgg.py generate
 ```
 invece tira su il server, apre quella pagina su un browser, e poi
 prova a spegnere il server
