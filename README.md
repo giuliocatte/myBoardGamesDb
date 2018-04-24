@@ -3,7 +3,7 @@
 Ero troppo pigro per fare un database dei miei giochi da tavolo, quindi ho fatto un
  software per generarlo a partire da [BoardGameGeek](https://boardgamegeek.com). 
  
-É stato fatto con python 3.6, ma ci sono buone possibilità che funzioni anche con versioni precedenti e magari anche 2.7.
+È stato fatto con python 3.6, ma ci sono buone possibilità che funzioni anche con versioni precedenti e magari anche 2.7.
 
 ## setup
 La parte python richiede di installare i moduli requests, fire, e bottle.
