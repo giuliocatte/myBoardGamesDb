@@ -41,6 +41,6 @@ prova a spegnere il server
 ## known issues
 * avevo provato ad usare gli sticky headers di tablesorter, ma per ora senza successo.
 * in teoria, generate dovrebbe spegnere il server dopo aver generato la pagina.
-Questo parrebbe succedere ogni tanto (random), ma spesso no.
+Questo parrebbe succedere spesso, ma ogni tanto no (random).
 Ci prova server.stop(), e inoltre se non erro è ciò a cui
 dovrebbe servire il poll_interval passato a serve_forever.

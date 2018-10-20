@@ -21,7 +21,7 @@ BGG_KEYS = ['gameId', 'name', 'image', 'thumbnail', 'minPlayers', 'maxPlayers', 
             'yearPublished', 'bggRating', 'averageRating', 'rank', 'numPlays', 'rating', 'owned', 'preOrdered',
             'forTrade', 'previousOwned', 'want', 'wantToPlay', 'wantToBuy', 'wishList', 'userComment']
 
-this_dir = os.path.dirname(__file__)
+this_dir = os.path.split(os.path.dirname(__file__))[0]
 ASSET_DIR = os.path.join(this_dir, 'assets')
 JQUERY_VERSION = '-3.2.1.min'
 

@@ -24,6 +24,7 @@ class BGG:
 	def save_collection(self, collection):
 		conn = sqlite3.connect(DBNAME.format(self.username))
 		conn.execute('CREATE TABLE IF NOT EXISTS collection (id int not null, data text not null)')
+		conn.execute('DELETE FROM collection')
 		for game in collection:
 			conn.execute('INSERT INTO collection (id, data) VALUES (?, ?)', (game['gameId'], json.dumps(game)))
 		conn.commit()
